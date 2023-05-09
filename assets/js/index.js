@@ -26,14 +26,12 @@ window.addEventListener("load", () => {
         }
       }
 
-      input.addEventListener("keydown", () => {
-        input.parentNode.classList.remove("invalid");
-        input.parentNode.classList.remove("valid");
-      });
-
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
           btn.click();
+        } else if (e.key !== "Tab") {
+          input.parentNode.classList.remove("invalid");
+          input.parentNode.classList.remove("valid");
         }
       });
     });
@@ -45,3 +43,8 @@ function checkEmail(email) {
     email
   );
 }
+
+const body = document.querySelector("body");
+body.addEventListener("keydown", (e) => {
+  console.log(e.key);
+});
