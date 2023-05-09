@@ -83,12 +83,21 @@ body {
     position: relative;
 }
 
-.icon-error {
-    display: none;
+.wrapper i {
     position: absolute;
     top: 50%;
     right: 22px;
     transform: translateY(-50%);
+}
+
+.wrapper i.fa-circle-exclamation {
+    display: none;
+    color: var(--red);
+}
+
+.wrapper i.fa-circle-check {
+    display: none;
+    color: #21AD49;
 }
 
 .message-error {
@@ -105,7 +114,11 @@ body {
     margin-bottom: 14px;
 }
 
-.invalid .icon-error {
+.invalid i.fa-circle-exclamation {
+    display: block;
+}
+
+.valid i.fa-circle-check {
     display: block;
 }
 
@@ -120,7 +133,7 @@ body {
 }
 
 input {
-    color: rgba(62, 60, 73, 0.8);
+    color: rgba(62, 60, 73, 0.9);
     font-size: 14px;
     font-weight: 700;
     display: block;
@@ -177,7 +190,7 @@ input:focus {
 .terms-and-services {
     color: var(--grayish-blue);
     line-height: 18px;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 small a {
