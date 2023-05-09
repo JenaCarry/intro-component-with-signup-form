@@ -15,20 +15,27 @@ window.addEventListener("load", () => {
         input.parentNode.classList.add("valid");
       }
 
-      input.addEventListener("keydown", () => {
-        input.parentNode.classList.remove("invalid");
-        input.parentNode.classList.remove("valid");
-      });
-
       if (input.id === "email") {
-        if (!checkEmail(input.value)) {
+        if (!checkEmail(input.value) || input.value === "") {
           input.parentNode.classList.remove("valid");
           input.parentNode.classList.add("invalid");
+          input.placeholder = "email@example/com";
         } else {
           input.parentNode.classList.remove("invalid");
           input.parentNode.classList.add("valid");
         }
       }
+
+      input.addEventListener("keydown", () => {
+        input.parentNode.classList.remove("invalid");
+        input.parentNode.classList.remove("valid");
+      });
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          btn.click();
+        }
+      });
     });
   });
 });
