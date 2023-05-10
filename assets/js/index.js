@@ -36,6 +36,45 @@ window.addEventListener("load", () => {
       });
     });
   });
+
+  inputs.forEach((input) => {
+    input.addEventListener("blur", (e) => {
+      const currentInput = e.target;
+      if (currentInput.id === "firstName") {
+        if (currentInput.value.length >= 3) {
+          input.parentNode.classList.remove("invalid");
+          input.parentNode.classList.add("valid");
+        } else {
+          input.parentNode.classList.remove("valid");
+          input.parentNode.classList.add("invalid");
+        }
+      } else if (currentInput.id === "lastName") {
+        if (currentInput.value.length >= 3) {
+          input.parentNode.classList.remove("invalid");
+          input.parentNode.classList.add("valid");
+        } else {
+          input.parentNode.classList.remove("valid");
+          input.parentNode.classList.add("invalid");
+        }
+      } else if (currentInput.id === "email") {
+        if (!checkEmail(input.value)) {
+          input.parentNode.classList.remove("valid");
+          input.parentNode.classList.add("invalid");
+        } else {
+          input.parentNode.classList.remove("invalid");
+          input.parentNode.classList.add("valid");
+        }
+      } else if (currentInput.id === "password") {
+        if (currentInput.value.length >= 6) {
+          input.parentNode.classList.remove("invalid");
+          input.parentNode.classList.add("valid");
+        } else {
+          input.parentNode.classList.remove("valid");
+          input.parentNode.classList.add("invalid");
+        }
+      }
+    });
+  });
 });
 
 function checkEmail(email) {
